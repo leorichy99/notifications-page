@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: hsl(1, 90%, 64%);
+    --blue: hsl(219, 85%, 26%);
+    --white: hsl(0, 0%, 100%);
+    --Very-light-grayish-blue: hsl(210, 60%, 98%);
+    --Light-grayish-blue-1: hsl(211, 68%, 94%);
+    --Light-grayish-blue-2: hsl(205, 33%, 90%);
+    --grayish-blue: hsl(219, 14%, 63%);
+    --Dark-grayish-blue: hsl(219, 12%, 42%);
+    --very-dark-blue: hsl(224, 21%, 14%);
+}
+
+body,
+html {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background: var(--Very-light-grayish-blue);
+    font-family: 'Plus Jakarta Sans';
+}
+
+.d-flex,
+.d-flex-bw {
+    display: flex;
+    align-items: center;
+}
+
+.d-flex-bw {
+    justify-content: space-between;
+}
+
+a,
+.name,
+.post,.notification p,.message_body p{
+    text-decoration: none;
+    font-size: 16px;
+}
+
+button {
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.name,.post a,.message_body,.unread,.notification,.notifications_count,.mark-all-as-read a{
+    transition: .5s ease;
+}
+
+.notification.read .unread_icon,.notifications_count.hide_count{
+    opacity: 0;
+}
+
+header a,.post a,.message_body p{
+    color: var(--Dark-grayish-blue);
+}
+
+.notification,.message_body{
+    cursor: pointer;
+}
+
+/* --------------------------------------------------------------- */
+
+.container {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notifications_page {
+    height: 100%;
+    background: var(--white);
+    padding: 50px 50px 0 50px;
+    border-radius: 20px;
+    box-shadow: -10px 10px 15px var(--Very-light-grayish-blue), 10px -10px 15px var(--Very-light-grayish-blue);
+}
+
+/* header */
+header {
+    margin-bottom: 50px;
+}
+
+.notifications_count {
+    height: 25px;
+    width: 25px;
+    border-radius: 5px;
+    background: var(--blue);
+    margin-left: 10px;
+    justify-content: center;
+    transform: translateY(3px);
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* notificattions */
+.notification {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    align-items: stretch;
+}
+
+.notification .user_img {
+    margin-right: 30px;
+}
+
+.notification img {
+    height: 50px;
+    width: 50px;
+}
+
+.info p:nth-of-type(1){
+    margin-bottom: 10px;
+}
+
+.notification.unread {
+    background: var(--Very-light-grayish-blue);
+}
+
+.unread_icon {
+    width: 8px;
+    height: 8px;
+    background: var(--red);
+    display: inline-block;
+    margin-left: 5px;
+    border-radius: 50%;
+    transform: translateY(-1px);
+}
+
+.name,
+.post,
+.chess_club {
+    font-weight: 800;
+}
+
+.name {
+    color: var(--very-dark-blue);
+}
+
+/* message_body */
+.message_body {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    outline: .5px var(--Dark-grayish-blue) solid;
+}
+
+/* hover states */
+.name:hover,.post a:hover,.mark-all-as-read a:hover,.chess_club{
+    color: var(--blue);
+}
+
+.message_body:hover{
+    background: var(--Light-grayish-blue-1);
+    outline: none;
+}
+
+/* when mark-all-as-read btn is clicked */
+.notification.read{
+    background: var(--white);
+}
+
+/* Responsiveness 🔥*/
+
+@media screen and (min-width: 1440px) {
+    .container {
+        padding: 50px 400px;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1000px) {
+    .container {
+        padding: 50px 100px;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1440px) {
+    .container {
+        padding: 50px 200px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 0;
+    }
+
+    .notifications_page {
+        padding: 50px 10px;
+    }
+
+    .notification {
+        padding: 20px 10px;
+    }
+
+    .mark-all-as-read a{
+        font-size: 14px;
+    }
+
+    .kimberly{
+        margin-right: 10px;
+    }
+
+    .kimberly img{
+        display: flex;
+        align-self: flex-start;
+    }
+}
